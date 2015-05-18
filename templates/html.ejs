@@ -1,0 +1,12 @@
+<html>
+  <link rel="stylesheet" href="<%= destName %>.css">
+  <style>
+    span {
+      display: inline-block;
+      margin: 10px;
+    }
+  </style>
+<% icons.forEach(function(icon) { %>
+  <span class="icon icon--<%= icon.filenameSanitized %>" title="<%= icon.filename %>"></span>
+<% }); %>
+</html>

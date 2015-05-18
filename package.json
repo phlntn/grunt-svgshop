@@ -1,0 +1,22 @@
+{
+  "name": "grunt-svgshop",
+  "description": "Cleans up SVGs exported by Photoshop.",
+  "version": "0.1.0",
+  "author": {
+    "name": "infinise",
+    "email": "phil@infinise.com"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "dependencies": {
+    "cheerio": "~0.19.0",
+    "css": "~2.2.0"
+  }
+}

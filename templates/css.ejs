@@ -1,0 +1,11 @@
+.icon {
+  background: url('<%= destName %>.svg');
+}
+
+<% icons.forEach(function(icon) { %>
+.icon.icon--<%= icon.filenameSanitized %> {
+  background-position: <%= icon.left %>px <%= icon.top %>px;
+  width: <%= icon.width %>px;
+  height: <%= icon.height %>px;
+}
+<% }); %>
