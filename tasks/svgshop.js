@@ -58,7 +58,7 @@ module.exports = function(grunt) {
               rule.selectors.forEach(function(sel){
                 rule.declarations.forEach(function(decl){
                   $(sel).attr(decl.property, decl.value);
-                  grunt.verbose.writeln('  Applied'['blue'], decl.property + ': ' + decl.value, 'to'['grey'], sel);
+                  grunt.verbose.writeln('  Applied'['green'], decl.property + ': ' + decl.value, 'to'['grey'], sel);
                 })
               })
             });
@@ -80,7 +80,7 @@ module.exports = function(grunt) {
           })
         }
         
-        cleanAttrs($('svg'));
+        cleanAttrs($('svg')[0]);
         
         // Remove bounds element
         
