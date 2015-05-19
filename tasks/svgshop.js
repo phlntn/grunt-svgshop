@@ -16,7 +16,7 @@ module.exports = function(grunt) {
     
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      mergeCSS: true,
+      mergeCss: true,
       cleanAttrs: [
         'preserveAspectRatio',
         'fill-rule',
@@ -48,7 +48,7 @@ module.exports = function(grunt) {
             
         // Merge CSS
         
-        if (options.mergeCSS) {
+        if (options.mergeCss) {
           var style = [];
           if ($('style')) {
             style = css.parse( $('style').html() ).stylesheet.rules;
