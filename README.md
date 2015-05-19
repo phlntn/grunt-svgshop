@@ -1,6 +1,6 @@
 # grunt-svgshop
 
-Cleans up SVGs exported by Photoshop Generator.
+Cleans up SVGs exported by Photoshop Generator. Best used with [svgmin](https://github.com/sindresorhus/grunt-svgmin).
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
