@@ -11,6 +11,7 @@
 module.exports = function(grunt) {
   var cheerio = require('cheerio');
   var css = require('css');
+  var logSymbols = require('log-symbols');
   
   grunt.registerMultiTask('svgshop', 'Cleans up SVGs exported by Photoshop.', function() {
     
@@ -45,6 +46,8 @@ module.exports = function(grunt) {
           normalizeWhitespace: true,
           xmlMode: true
         });
+
+        var opticount = 0;
             
         // Merge CSS
         
@@ -58,7 +61,9 @@ module.exports = function(grunt) {
               rule.selectors.forEach(function(sel){
                 rule.declarations.forEach(function(decl){
                   $(sel).attr(decl.property, decl.value);
+
                   grunt.verbose.writeln('  Applied'['green'], decl.property + ': ' + decl.value, 'to'['grey'], sel);
+                  opticount++;
                 })
               })
             });
@@ -71,7 +76,9 @@ module.exports = function(grunt) {
           options.cleanAttrs.forEach(function(attr){
             if ($(el).attr(attr) != undefined) {
               $(el).removeAttr(attr);
+
               grunt.verbose.writeln('  Removed'['yellow'], attr, 'from'['grey'], el.name);
+              opticount++;
             }
           })
           
@@ -87,11 +94,15 @@ module.exports = function(grunt) {
         var el = $('*[fill="' + options.boundsColor + '"]')[0];
         if (el) {
           grunt.verbose.writeln('  Removed'['magenta'], 'bounds', el.name);
+          opticount++;
+
           $(el).remove();
         }
         
       
         grunt.file.write(f.dest, $.html());
+
+        grunt.log.writeln(logSymbols.success, filepath, String('(' + opticount + ' optimizations)')['grey']);
         
         
       });
