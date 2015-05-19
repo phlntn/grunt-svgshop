@@ -41,13 +41,13 @@ grunt.initConfig({
 Type: `Boolean`
 Default value: `true`
 
-Whether to transform any included CSS declarations into actual attributes on the elements.
+Whether to move CSS style declarations (fills, strokes, etc) to attributes on the elements (easier to minify and more compatible).
 
 #### options.boundsColor
 Type: `String`
 Default value: `#ff00ff`
 
-Color of an optional bounds object (whose only purpose is to force a specific file size) inside the SVG, which will be removed.
+Color of an optional "bounds" element which can be included to force the SVG to be a certain size. It will be stripped from the cleaned-up files. (Only works with `mergeCss` enabled.)
 
 #### options.cleanAttrs
 Type: `Array`
@@ -59,4 +59,4 @@ Default value: `[
         'class'
       ]`
 
-List of unnecessary attributes that will be removed.
+List of (often) unnecessary attributes that will be removed.
