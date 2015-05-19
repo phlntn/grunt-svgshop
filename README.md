@@ -37,7 +37,7 @@ grunt.initConfig({
 
 ### Options
 
-#### options.mergeCSS
+#### options.mergeCss
 Type: `Boolean`
 Default value: `true`
 
