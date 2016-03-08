@@ -53,7 +53,7 @@ module.exports = function(grunt) {
         
         if (options.mergeCss) {
           var style = [];
-          if ($('style')) {
+          if ($('style').length) {
             style = css.parse( $('style').html() ).stylesheet.rules;
             $('style').remove();
             
