@@ -75,10 +75,15 @@ module.exports = function(grunt) {
         function cleanAttrs(el) {
           options.cleanAttrs.forEach(function(attr){
             if ($(el).attr(attr) != undefined) {
-              $(el).removeAttr(attr);
+              if (el.parent && el.parent.name == "defs" && attr == "id") {
+                grunt.verbose.writeln('  Not removing'['yellow'], attr, 'from'['grey'], el.name, 'because it\'s a definition'['grey']);
+              }
+              else {
+                $(el).removeAttr(attr);
 
-              grunt.verbose.writeln('  Removed'['yellow'], attr, 'from'['grey'], el.name);
-              opticount++;
+                grunt.verbose.writeln('  Removed'['yellow'], attr, 'from'['grey'], el.name);
+                opticount++;
+              }
             }
           })
           
